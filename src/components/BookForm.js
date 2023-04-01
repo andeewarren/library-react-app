@@ -1,16 +1,17 @@
 import React, { useState } from "react";
+import { booksApi } from "../rest/BooksApi";
 import { Form } from 'react-bootstrap';
 
-export function BookForm() {
+export function BookForm( {onAddBook} ) {
     const [title, setTitle] = useState('');
     const [author, setAuthor] = useState('');
     const [image, setImage] = useState('');
     const [genre, setGenre] = useState('');
     const [readStatus, setReadStatus] = useState('TBR');
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => { //TODO add conditional to replace blank URL with placeholder URL
         event.preventDefault();
-        //add code for where the book info entered should go
+        console.log('submit check1');
         const newBook = {
             title,
             author,
@@ -18,13 +19,21 @@ export function BookForm() {
             genre,
             readStatus
         };
-        // onAddBook(newBook);
-        setTitle('');
-        setAuthor('');
-        setImage('');
-        setGenre('');
-        setReadStatus('TBR');
+        console.log('submit check 2');
+        try {
+            await booksApi.post(newBook);
+            onAddBook(newBook); // assuming this is a prop passed to the component to handle the new book addition
+            setTitle('');
+            setAuthor('');
+            setImage('');
+            setGenre('');
+            setReadStatus('TBR');
+        } catch(e) {
+            console.error("Oops, looks like adding the book didn't work.", e);
+        }
+        console.log('submit check 3');
     }
+    
 
     return (
         <Form onSubmit={handleSubmit}>

@@ -38,6 +38,21 @@ class BooksApi {
             }
         };
 
+    post = async (book) => {
+        try {
+            const resp = await fetch(BOOKS_ENDPOINT, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(book)
+            });
+            return await resp.json();
+        } catch(e) {
+            console.log('Oops, looks like adding a book had an issue.', e);
+        }
+    }
+
 }
 
 export const booksApi = new BooksApi();
