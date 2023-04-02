@@ -10,7 +10,7 @@ export function BookForm( {onAddBook} ) {
     const [readStatus, setReadStatus] = useState('TBR');
 
     const handleSubmit = async (event) => { //TODO add conditional to replace blank URL with placeholder URL
-        event.preventDefault();
+        // event.preventDefault();
         console.log('submit check1');
         const newBook = {
             title,
@@ -21,8 +21,8 @@ export function BookForm( {onAddBook} ) {
         };
         console.log('submit check 2');
         try {
-            await booksApi.post(newBook);
-            onAddBook(newBook); // assuming this is a prop passed to the component to handle the new book addition
+            const addedBook = await booksApi.post(newBook);
+            onAddBook(addedBook); // assuming this is a prop passed to the component to handle the new book addition
             setTitle('');
             setAuthor('');
             setImage('');
