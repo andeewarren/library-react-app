@@ -9,21 +9,24 @@ import './App.css';
 function App() {
   const [books, setBooks] = useState([]);
 
-  const handleAddBook = async (newBook) => {
-    try {
-      const addedBook = await booksApi.post(newBook);
-      setBooks([addedBook, ...books]);
-    } catch(e) {
-      console.error('Oops, looks like adding the book failed.');
-    }
-  }
+  // const handleAddBook = async (newBook) => {
+  //   try {
+  //     const addedBook = await booksApi.post(newBook);
+  //     setBooks([addedBook, ...books]);
+  //   } catch(e) {
+  //     console.error('Oops, looks like adding the book failed.');
+  //   }
+  // }
 
+  const addBook = (newBook) => {
+    setBooks([newBook, ...books]); 
+  }
 
   //TODO figure out adding a book without refreshing
 
   return (
     <Container>
-        <BookForm onAddBook={handleAddBook} />
+        <BookForm onAddBook={addBook} />
         <BooksList initialBooks={books} />
     </Container>  
   );
