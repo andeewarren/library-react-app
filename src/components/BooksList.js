@@ -40,12 +40,13 @@ export function BooksList({initialBooks}) {
         }
     }
     
-    
+    const sortedBooks = books.sort((a,b) => a.id - b.id);
 
     return (
         <div>
-            {books.map((book, index) => (
-                <Card key={index}>
+            {console.log(sortedBooks)};
+            {sortedBooks.reverse().map((book, id) => (
+                <Card key={id}>
                     <Card.Img variant='top' src={book.image} />
                     <Card.Body>
                         <Card.Title><h3>{book.title}</h3></Card.Title>
