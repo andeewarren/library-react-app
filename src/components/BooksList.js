@@ -44,7 +44,7 @@ export function BooksList({initialBooks}) {
 
     return (
         <div>
-            {console.log(sortedBooks)};
+            {console.log(sortedBooks)}
             {sortedBooks.reverse().map((book, id) => (
                 <Card key={id}>
                     <Card.Img variant='top' src={book.image} />

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { booksApi } from "../rest/BooksApi";
 import { Form } from 'react-bootstrap';
 
-export function BookForm( ) {
+export function BookForm( {onAddBook} ) {
     const [title, setTitle] = useState('');
     const [author, setAuthor] = useState('');
     const [image, setImage] = useState('');
@@ -10,7 +10,7 @@ export function BookForm( ) {
     const [readStatus, setReadStatus] = useState('TBR');
 
     const handleSubmit = async (event) => { //TODO add conditional to replace blank URL with placeholder URL
-        event.preventDefault();
+        // event.preventDefault();
         console.log('submit check1');
         const newBook = {
             title,
@@ -22,7 +22,7 @@ export function BookForm( ) {
         console.log('submit check 2');
         try {
             const addedBook = await booksApi.post(newBook);
-            // onAddBook(addedBook); 
+            onAddBook(addedBook);  
             setTitle('');
             setAuthor('');
             setImage('');
@@ -31,7 +31,7 @@ export function BookForm( ) {
         } catch(e) {
             console.error("Oops, looks like adding the book didn't work.", e);
         }
-        console.log('submit check 3');
+        // console.log('submit check 3');
     }
     
 

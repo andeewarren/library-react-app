@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BooksList } from './components/BooksList';
 import { BookForm } from './components/BookForm';
 import { booksApi } from './rest/BooksApi';
@@ -9,16 +9,8 @@ import './App.css';
 function App() {
   const [books, setBooks] = useState([]);
 
-  // const handleAddBook = async (newBook) => {
-  //   try {
-  //     const addedBook = await booksApi.post(newBook);
-  //     setBooks([addedBook, ...books]);
-  //   } catch(e) {
-  //     console.error('Oops, looks like adding the book failed.');
-  //   }
-  // }
 
-  const addBook = (newBook) => {
+  const addBook = (newBook) => {    
     setBooks([newBook, ...books]); 
   }
 
