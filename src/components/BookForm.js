@@ -46,13 +46,13 @@ export function BookForm( {onAddBook} ) {
             <Row>
                 <Col>
                     <FormGroup className="mb-3" controlId="formTitle">
-                        <Form.Label>Title</Form.Label>
+                        <Form.Label className='label'>Title</Form.Label>
                         <Form.Control type='text' placeholder='Enter title' value={title} onChange={(event) => setTitle(event.target.value)} />
                     </FormGroup>
                 </Col>
                 <Col>
                     <FormGroup className="mb-3" controlId="formAuthor">
-                        <Form.Label>Author</Form.Label>
+                        <Form.Label className='label'>Author</Form.Label>
                         <Form.Control type='text' placeholder='Enter author' value={author} onChange={(event) => setAuthor(event.target.value)} />
                     </FormGroup>
                 </Col>
@@ -60,19 +60,19 @@ export function BookForm( {onAddBook} ) {
             <Row>
                 <Col>
                     <FormGroup className="mb-3" controlId="formImage">
-                        <Form.Label>Cover Image</Form.Label>
+                        <Form.Label className="label">Cover Image</Form.Label>
                         <Form.Control type='url' placeholder='Enter cover image URL' value={image} onChange={(event) => setImage(event.target.value)} />
                     </FormGroup>
                 </Col>
                 <Col>
                     <FormGroup className="mb-3" controlId="formGenre">
-                        <Form.Label>Genre</Form.Label>
+                        <Form.Label className='label'>Genre</Form.Label>
                         <Form.Control type='text' placeholder='Enter genre' value={genre} onChange={(event) => setGenre(event.target.value)} />
                     </FormGroup>
                 </Col>
                 <Col>
                     <FormGroup className="mb-3" controlId="formReadStatus">
-                        <Form.Label>Read Status</Form.Label>
+                        <Form.Label className='label'>Read Status</Form.Label>
                         <Form.Select value={readStatus} onChange={(event) => setReadStatus(event.target.value)}>
                         <option>Select read status</option>
                         <option value="TBR">TBR</option>

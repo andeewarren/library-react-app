@@ -48,16 +48,16 @@ export function BooksList({initialBooks}) {
             <ListLength books={books} />
             // {console.log(sortedBooks)}
             <Container className="container" fluid='sm'>
-            <Row xs={1} md={3} className='g-4'>
+            <Row xs={1} sm={2} md={3} lg={4} className='g-4'>
             {sortedBooks.reverse().map((book, id) => (
                 <Col key={id}>
                     <Card  className="book-card" style={{height: '100%'}}>
-                        <Card.Img variant='top' src={book.image}  />
+                        <Card.Img variant='top' id='cover' src={book.image}  />
                         <Card.Body>
                             <Card.Title><h2>{book.title}</h2></Card.Title>
                             <Card.Text>
                                 by <strong>{book.author}</strong>
-                                <Row className='gx-1'>
+                                <Row className='book-info gx-1'>
                                     <Col>
                                         {book.genre}
                                     </Col>

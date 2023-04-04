@@ -1,6 +1,7 @@
 body {
   background-color: #00015C;
   color: #2F1E5F;
+  font-family: 'Quicksand', sans-serif;
 }
 
 .container {
@@ -34,6 +35,10 @@ form {
   margin-bottom: 30px;
 }
 
+.label {
+  font-weight: 500;
+}
+
 .button {
   background-color: #AB54F8;
   border: transparent;
@@ -53,6 +58,18 @@ form {
   background-color: #F0F8FF;
   border-radius: 20px;
   text-align: center;
+}
+
+#cover {
+  margin: auto;
+  margin-top: 8px;
+  width: 93%;
+  border-radius: 20px;
+
+}
+
+.book-info {
+  margin-top: 20px;
 }
 
 p {
