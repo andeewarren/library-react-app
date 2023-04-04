@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { booksApi } from "../rest/BooksApi";
-import { Card, Button } from 'react-bootstrap';
+import { Card, Button, Row, Col, Container } from 'react-bootstrap';
 
 
 
@@ -43,26 +43,39 @@ export function BooksList({initialBooks}) {
     const sortedBooks = books.sort((a,b) => a.id - b.id);
 
     return (
-        <div>
-            {console.log(sortedBooks)}
+        
+            // {console.log(sortedBooks)}
+            <Container className="container" fluid='sm'>
+            <Row xs={1} md={3} className='g-4'>
             {sortedBooks.reverse().map((book, id) => (
-                <Card key={id}>
-                    <Card.Img variant='top' src={book.image} />
-                    <Card.Body>
-                        <Card.Title><h3>{book.title}</h3></Card.Title>
-                        <Card.Text>
-                            {book.author}<br />
-                            {book.genre} <br />
-                            <select value={book.readStatus} onChange={(e) => handleUpdateReadStatus(book, e.target.value)}>
-                                <option value="Read">Read</option>
-                                <option value="In Progress">In progress</option>
-                                <option value="TBR">TBR</option>
-                            </select>
-                        </Card.Text>
-                        <Button onClick={() => handleDelete(book.id)}>Delete</Button> 
-                    </Card.Body>
-                </Card>
+                <Col key={id}>
+                    <Card  className="book-card" style={{height: '100%'}}>
+                        <Card.Img variant='top' src={book.image}  />
+                        <Card.Body>
+                            <Card.Title><h2>{book.title}</h2></Card.Title>
+                            <Card.Text>
+                                <p>by <strong>{book.author}</strong></p>
+                                <Row className='gx-1'>
+                                    <Col>
+                                        <p>{book.genre}</p>
+                                    </Col>
+                                    <Col>
+                                        <select value={book.readStatus} onChange={(e) => handleUpdateReadStatus(book, e.target.value)}>
+                                            <option value="Read">Read</option>
+                                            <option value="In Progress">In progress</option>
+                                            <option value="TBR">TBR</option>
+                                        </select>
+                                    </Col>
+                                </Row>
+                            </Card.Text>
+                            
+                            <Button id='delete-btn' onClick={() => handleDelete(book.id)}>Delete</Button> 
+                        </Card.Body>
+                    </Card>
+                </Col>
             ))}
-        </div>
+            </Row>
+            </Container>
+        
     );
 }

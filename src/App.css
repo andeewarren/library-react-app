@@ -1,38 +1,77 @@
-.App {
+body {
+  background-color: #00015C;
+  color: #2F1E5F;
+}
+
+.container {
+  margin-bottom: 50px;
+}
+
+.header {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 25px;
+  padding: 8px;
+  background-color: #F0F8FF;
+  color: #2F1E5F;
+}
+
+.footer {
+  text-align: center;
+  margin-top: auto;
+  background-color: #F0F8FF;
+  padding: 8px
+}
+
+form {
+  padding: 20px;
+  color:#2F1E5F;
+  background-color: #F0F8FF;
+  border-radius: 20px;
+  width: 97%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+}
+
+.button {
+  background-color: #AB54F8;
+  border: transparent;
+}
+
+.button:hover {
+  background-color: #803FBA;
+  border: transparent;
+}
+
+.book-card {
+  background-color: #F0F8FF;
+  border-radius: 20px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+p {
+  margin-top: 7px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+select {
+  border-radius: 8px;
+  padding: 8px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+#delete-btn {
+  background-color: #F854AB;
+  border: transparent;
 }
 
-.App-link {
-  color: #61dafb;
+#delete-btn:hover {
+  background-color: #D94A96;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+a {
+  color: #AB54F8;
+}
+
+a:hover {
+  color: #803FBA;
 }
