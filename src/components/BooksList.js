@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { booksApi } from "../rest/BooksApi";
 import { Card, Button, Row, Col, Container } from 'react-bootstrap';
+import ListLength from "./ListLength";
 
 
 
@@ -43,7 +44,8 @@ export function BooksList({initialBooks}) {
     const sortedBooks = books.sort((a,b) => a.id - b.id);
 
     return (
-        
+            <div>
+            <ListLength books={books} />
             // {console.log(sortedBooks)}
             <Container className="container" fluid='sm'>
             <Row xs={1} md={3} className='g-4'>
@@ -54,10 +56,10 @@ export function BooksList({initialBooks}) {
                         <Card.Body>
                             <Card.Title><h2>{book.title}</h2></Card.Title>
                             <Card.Text>
-                                <p>by <strong>{book.author}</strong></p>
+                                by <strong>{book.author}</strong>
                                 <Row className='gx-1'>
                                     <Col>
-                                        <p>{book.genre}</p>
+                                        {book.genre}
                                     </Col>
                                     <Col>
                                         <select value={book.readStatus} onChange={(e) => handleUpdateReadStatus(book, e.target.value)}>
@@ -76,6 +78,6 @@ export function BooksList({initialBooks}) {
             ))}
             </Row>
             </Container>
-        
+        </div>
     );
 }
