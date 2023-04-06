@@ -14,6 +14,7 @@ export function BooksList({initialBooks}) {
             try {
                 const data = await booksApi.get();
                 setBooks(data);
+                console.log(books);
             } catch(e) {
                 console.error('Oops, looks like fetchBooks had an issue.');
             }
@@ -46,7 +47,7 @@ export function BooksList({initialBooks}) {
     return (
             <div>
             <ListLength books={books} />
-            // {console.log(sortedBooks)}
+            {/* {console.log(sortedBooks)} */}
             <Container className="container" fluid='sm'>
             <Row xs={1} sm={2} md={3} lg={4} className='g-4'>
             {sortedBooks.reverse().map((book, id) => (
@@ -55,7 +56,7 @@ export function BooksList({initialBooks}) {
                         <Card.Img variant='top' id='cover' src={book.image}  />
                         <Card.Body>
                             <Card.Title><h2>{book.title}</h2></Card.Title>
-                            <Card.Text>
+                            <Card.Body>
                                 by <strong>{book.author}</strong>
                                 <Row className='book-info gx-1'>
                                     <Col>
@@ -69,7 +70,7 @@ export function BooksList({initialBooks}) {
                                         </select>
                                     </Col>
                                 </Row>
-                            </Card.Text>
+                            </Card.Body>
                             
                             <Button id='delete-btn' onClick={() => handleDelete(book.id)}>Delete</Button> 
                         </Card.Body>

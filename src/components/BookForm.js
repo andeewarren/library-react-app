@@ -9,15 +9,15 @@ export function BookForm( {onAddBook} ) {
     const [genre, setGenre] = useState('');
     const [readStatus, setReadStatus] = useState('TBR');
 
-    const handleSubmit = async () => { //TODO add conditional to replace blank URL with placeholder URL
-
+    const handleSubmit = async (event) => { //TODO add conditional to replace blank URL with placeholder URL
+        console.log('submit check1');
         let imageUrl = image;
         if (!imageUrl) {
-            imageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Placeholder_book.svg/928px-Placeholder_book.svg.png?20071129174344"
+            imageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnKgLLxViflUuJStAO9ur5Of0ctQaGM3LC42SqkqiGSpbqKYpNDxVpWHcEkKL9zz6RUTY&usqp=CAU"
         }
 
-        // event.preventDefault();
-        console.log('submit check1');
+        event.preventDefault();
+        // console.log('submit check1');
         const newBook = {
             title,
             author,
@@ -34,10 +34,12 @@ export function BookForm( {onAddBook} ) {
             setImage('');
             setGenre('');
             setReadStatus('TBR');
+            const checkGet = booksApi.get();
+            console.log(checkGet);
         } catch(e) {
             console.error("Oops, looks like adding the book didn't work.", e);
         }
-        // console.log('submit check 3');
+        console.log('submit check 3');
     }
     
 

@@ -1,4 +1,4 @@
-const BOOKS_ENDPOINT = 'https://640a21d16ecd4f9e18c5cb25.mockapi.io/books';
+const BOOKS_ENDPOINT = 'https://640a21d16ecd4f9e18c5cb25.mockapi.io/test';
 
 class BooksApi {
     get = async () => {
